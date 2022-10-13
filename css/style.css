@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600&display=swap");
 * {
   box-sizing: border-box;
 }
@@ -53,4 +54,69 @@ q:before, q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+}
+
+body {
+  font-family: "Lexend", sans-serif;
+  background-color: #f5f4f9;
+  width: 100%;
+}
+
+.body__wrapper {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  max-width: 1920px;
+}
+.body__wrapper .main {
+  flex: 1 0 auto;
+}
+.body__wrapper .footer {
+  flex: 0 0 auto;
+}
+
+header {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  width: 100%;
+  max-width: 1920px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 92px;
+  font-size: 18px;
+}
+header .header__nav {
+  display: flex;
+}
+header .header__nav .nav__item {
+  margin-left: 40px;
+  font-weight: 400;
+  text-decoration: none;
+  color: rgba(239, 239, 239, 0.7);
+  transition: 0.3s all;
+}
+header .header__nav .nav__item:first-of-type {
+  margin-left: 0;
+}
+header .header__nav .nav__item:hover {
+  color: #fff;
+}
+header .nav__regist .regist__btn {
+  margin-left: 16px;
+  padding: 8px 25px;
+  background-color: rgba(255, 255, 255, 0);
+  color: #fff;
+  border-radius: 8px;
+  border: 1px solid #fff;
+  cursor: pointer;
+  transition: 0.3s all;
+}
+header .nav__regist .regist__btn:first-of-type {
+  margin-left: 0;
+}
+header .nav__regist .regist__btn:hover, header .nav__regist .regist__btn:active {
+  background-color: #3b44f6;
+  border-color: #3b44f6;
 }/*# sourceMappingURL=style.css.map */
