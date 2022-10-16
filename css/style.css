@@ -77,7 +77,7 @@ body {
 
 header {
   position: absolute;
-  z-index: 1;
+  z-index: 2;
   top: 0;
   width: 100%;
   max-width: 1920px;
@@ -119,4 +119,73 @@ header .nav__regist .regist__btn:first-of-type {
 header .nav__regist .regist__btn:hover, header .nav__regist .regist__btn:active {
   background-color: #3b44f6;
   border-color: #3b44f6;
+}
+
+main {
+  width: 100%;
+  max-width: 1920px;
+}
+
+.swiper-1 {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: -1;
+  width: 100%;
+}
+.swiper-1 .swiper-slide {
+  width: 100%;
+  max-width: 1920px;
+}
+.swiper-1 .swiper-slide img {
+  width: 100%;
+  max-width: 1920px;
+  height: 100vh;
+  max-height: 1080px;
+  object-fit: cover;
+}
+.swiper-1 .swiper-pagination span {
+  background-color: #fff;
+}
+.swiper-1 .swiper-button-next:after,
+.swiper-1 .swiper-button-prev:after {
+  position: absolute;
+  z-index: 1;
+  font-size: 22px;
+  font-family: swiper-icons;
+  text-transform: none !important;
+  letter-spacing: 0;
+  font-variant: initial;
+  line-height: 1;
+}
+.swiper-1 .swiper-button-prev:after {
+  left: 15px;
+  color: #fff;
+}
+.swiper-1 .swiper-button-next:after {
+  right: 15px;
+  color: #fff;
+}
+.swiper-1 .swiper-button-next::before,
+.swiper-1 .swiper-button-prev::before {
+  position: absolute;
+  z-index: 1;
+  content: "";
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.7);
+  transition: 0.3s all;
+}
+.swiper-1 .swiper-button-prev::before {
+  left: 0;
+}
+.swiper-1 .swiper-button-next::before {
+  right: 0;
+}
+.swiper-1 .swiper-button-next:hover::before,
+.swiper-1 .swiper-button-prev:hover::before,
+.swiper-1 .swiper-button-next:active::before,
+.swiper-1 .swiper-button-prev:active::before {
+  background-color: rgba(0, 0, 0, 0.3);
 }/*# sourceMappingURL=style.css.map */

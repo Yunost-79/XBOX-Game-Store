@@ -25,7 +25,7 @@ body {
 
 header {
   position: absolute;
-  z-index: 1;
+  z-index: 2;
   top: 0;
   width: 100%;
   max-width: 1920px;
@@ -77,4 +77,80 @@ header {
     }
   }
 }
+
+//Slider Banner
+main {
+  width: 100%;
+  max-width: 1920px;
+}
+.swiper-1 {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: -1;
+  width: 100%;
+  & .swiper-slide {
+    width: 100%;
+    max-width: 1920px;
+    img {
+      width: 100%;
+      max-width: 1920px;
+      height: 100vh;
+      max-height: 1080px;
+      object-fit: cover;
+    }
+  }
+
+  & .swiper-pagination {
+    span {
+      background-color: #fff;
+    }
+  }
+
+  .swiper-button-next:after,
+  .swiper-button-prev:after {
+    position: absolute;
+
+    z-index: 1;
+    font-size: 22px;
+    font-family: swiper-icons;
+    text-transform: none !important;
+    letter-spacing: 0;
+    font-variant: initial;
+    line-height: 1;
+  }
+  .swiper-button-prev:after {
+    left: 15px;
+    color: #fff;
+  }
+  .swiper-button-next:after {
+    right: 15px;
+    color: #fff;
+  }
+
+  .swiper-button-next::before,
+  .swiper-button-prev::before {
+    position: absolute;
+    z-index: 1;
+    content: '';
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.7);
+    transition: 0.3s all;
+  }
+  .swiper-button-prev::before {
+    left: 0;
+  }
+  .swiper-button-next::before {
+    right: 0;
+  }
+  .swiper-button-next:hover::before,
+  .swiper-button-prev:hover::before,
+  .swiper-button-next:active::before,
+  .swiper-button-prev:active::before {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+}
+
 

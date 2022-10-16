@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./links/swiper-links/swiper-bundle.min.css" />
     <title>XBOX Game Store</title>
   </head>
   <body>
@@ -27,21 +28,33 @@
       </header>
 
       <main>
-        <div class="banner">
-          <div class="slider">
-            <div class="slider__line">
-              <img src="./image/banner-promotion.png" alt="" />
-              <img src="./image/banner-promotion.png" alt="" />
-              <img src="./image/banner-promotion.png" alt="" />
-              <img src="./image/banner-promotion.png" alt="" />
-              <img src="./image/banner-promotion.png" alt="" />
+          <div class="swiper mySwiper swiper-1">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <img src="./image/banner-promotion.png" alt="" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./image/banner-promotion.png" alt="" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./image/banner-promotion.png" alt="" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./image/banner-promotion.png" alt="" />
+              </div>
             </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
           </div>
-        </div>
+
+
+
       </main>
+
       <footer></footer>
     </div>
-
+    <script src="./links/swiper-links/swiper-bundle.min.js"></script>
     <script src="./scripts/slider.js"></script>
   </body>
 </html>
