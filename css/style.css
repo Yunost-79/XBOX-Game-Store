@@ -62,16 +62,23 @@ body {
   width: 100%;
 }
 
+.lock {
+  overflow: hidden;
+}
+
 .body__wrapper {
   display: flex;
   flex-direction: column;
   margin: 0 auto;
   max-width: 1920px;
 }
-.body__wrapper .main {
+.body__wrapper header {
+  overflow: hidden;
+}
+.body__wrapper main {
   flex: 1 0 auto;
 }
-.body__wrapper .footer {
+.body__wrapper footer {
   flex: 0 0 auto;
 }
 
@@ -84,23 +91,20 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 16px 92px;
+  padding: 20px 92px;
   font-size: 18px;
 }
-header .header__nav {
-  display: flex;
-}
-header .header__nav .nav__item {
+header .nav .nav__item {
   margin-left: 40px;
   font-weight: 400;
   text-decoration: none;
   color: rgba(239, 239, 239, 0.7);
   transition: 0.3s all;
 }
-header .header__nav .nav__item:first-of-type {
+header .nav .nav__item:first-of-type {
   margin-left: 0;
 }
-header .header__nav .nav__item:hover {
+header .nav .nav__item:hover {
   color: #fff;
 }
 header .nav__regist .regist__btn {
@@ -120,7 +124,143 @@ header .nav__regist .regist__btn:hover, header .nav__regist .regist__btn:active 
   background-color: #3b44f6;
   border-color: #3b44f6;
 }
+header .burger__lines {
+  position: relative;
+  z-index: 4;
+  right: 0;
+  padding-right: 40px;
+}
+header .burger__lines .burger__item,
+header .burger__lines .burger__item::after,
+header .burger__lines .burger__item::before {
+  position: absolute;
+  content: "";
+  width: 40px;
+  height: 4px;
+  background-color: #3b44f6;
+  transition: 0.3s all;
+}
+header .burger__lines .burger__item::after {
+  top: 15px;
+}
+header .burger__lines .burger__item::before {
+  top: -15px;
+}
+header .burger__lines.active .burger__item,
+header .burger__lines.active .burger__item::after,
+header .burger__lines.active .burger__item::before {
+  background-color: #000;
+}
+header .burger__lines.active .burger__item {
+  height: 0;
+}
+header .burger__lines.active .burger__item::before {
+  top: 0;
+  transform: rotate(135deg);
+}
+header .burger__lines.active .burger__item::after {
+  top: 0;
+  transform: rotate(-135deg);
+}
 
+@media (max-width: 920px) {
+  header {
+    padding: 20px 40px;
+  }
+}
+@media (max-width: 768px) {
+  .nav,
+.nav__regist {
+    display: none;
+  }
+}
+.burger__menu {
+  display: block;
+  position: fixed;
+  z-index: 3;
+  top: -100%;
+  right: 0;
+  flex-direction: column;
+  width: 65%;
+  height: 100vh;
+  background-color: #3b44f6;
+  transition: 0.3s all;
+}
+.burger__menu .burger__nav {
+  display: flex;
+  flex-direction: column;
+  margin: 75px auto 0 25px;
+}
+.burger__menu .burger__nav__item {
+  text-decoration: none;
+  font-size: 25px;
+  font-weight: 700;
+  color: #fff;
+  margin-top: 30px;
+  transition: 0.3s all;
+}
+.burger__menu .burger__nav__item:first-of-type {
+  margin-top: 0;
+}
+.burger__menu .burger__nav__item:hover, .burger__menu .burger__nav__item :active {
+  color: rgba(255, 255, 255, 0.7);
+}
+.burger__menu .burger__nav__regist {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin: 50px 25px 0 25px;
+}
+.burger__menu .burger__nav__regist__btn {
+  padding: 10px;
+  background-color: #fff;
+  color: #000;
+  border-radius: 8px;
+  font-size: 20px;
+  border: 1px solid #fff;
+  cursor: pointer;
+  transition: 0.3s all;
+}
+.burger__menu .burger__nav__regist__btn:hover, .burger__menu .burger__nav__regist__btn :active {
+  background-color: rgba(0, 0, 0, 0);
+  color: #fff;
+}
+
+@media (max-width: 500px) {
+  .burger__menu {
+    width: 100%;
+  }
+}
+.burger__backdrop {
+  display: none;
+  position: fixed;
+  top: -100%;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: -3;
+  background-color: rgba(0, 0, 0, 0);
+  opacity: 0;
+  transition: 0.7s all;
+}
+.burger__backdrop.active {
+  display: flex;
+  z-index: 1;
+  top: 0;
+  opacity: 0.3;
+  background-color: rgba(59, 68, 246, 0.4745098039);
+}
+
+.burger__menu.active {
+  top: 0;
+}
+
+@media (min-width: 768px) {
+  .burger__menu,
+.burger__lines {
+    display: none;
+  }
+}
 main {
   width: 100%;
   max-width: 1920px;
@@ -130,7 +270,7 @@ main {
   display: flex;
   justify-content: center;
   position: relative;
-  z-index: -1;
+  z-index: -3;
   width: 100%;
 }
 .swiper-1 .swiper-slide {
