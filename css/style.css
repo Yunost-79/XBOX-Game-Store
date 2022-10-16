@@ -178,7 +178,7 @@ header .burger__lines.active .burger__item::after {
   display: block;
   position: fixed;
   z-index: 3;
-  top: -100%;
+  top: -1000%;
   right: 0;
   flex-direction: column;
   width: 65%;
