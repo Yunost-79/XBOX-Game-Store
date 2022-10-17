@@ -26,10 +26,10 @@
           <button class="regist__btn">Login</button>
         </div>
 
-        <div class="burger__lines">
+        <div class="burger__lines" onclick="handleBurgerMenu()">
           <span class="burger__item"></span>
         </div>
-        <div class="burger__menu">
+        <div class="burger__menu" onclick="handleBurgerMenu()">
           <div class="burger__nav">
             <a href="#" class="burger__nav__item">Games</a>
             <a href="#" class="burger__nav__item">Browse Games</a>
@@ -40,7 +40,7 @@
             <button class="burger__nav__regist__btn">Login</button>
           </div>
         </div>
-        <div class="burger__backdrop"></div>
+        <div class="burger__backdrop" onclick="handleBurgerMenu()"></div>
       </header>
 
       <main>
@@ -75,6 +75,7 @@
         <!-- Main Conteiner with content -->
 
         <div class="container">
+          <!-- About -->
           <div class="official__block">
             <div class="official__title">
               <h2>Why eXStore?</h2>
@@ -86,6 +87,40 @@
               <img src="./image/item-3.png" alt="" />
             </div>
             <p>Trusted by 100.000+ customers</p>
+          </div>
+
+          <!-- Games Genres -->
+          <div class="genres">
+            <div class="genres__title">
+              <h1>Games Genres</h1>
+              <a href="#">See all genres</a>
+            </div>
+            <div class="genres__image">
+              <a href="#" class="image__item">
+                <img src="./image/bg-image-game-1.png" alt="" />
+                <p>Strategy</p>
+              </a>
+              <a href="#" class="image__item">
+                <img src="./image/bg-image-game-2.png" alt="" />
+                <p>FPS</p>
+              </a>
+              <a href="#" class="image__item">
+                <img src="./image/bg-image-game-3.png" alt="" />
+                <p>RPG</p>
+              </a>
+              <a href="#" class="image__item">
+                <img src="./image/bg-image-game-4.png" alt="" />
+                <p>Puzzle</p>
+              </a>
+              <a href="#" class="image__item">
+                <img src="./image/bg-image-game-5.png" alt="" />
+                <p>Role Playing</p>
+              </a>
+              <a href="#" class="image__item">
+                <img src="./image/bg-image-game-6.png" alt="" />
+                <p>Sport</p>
+              </a>
+            </div>
           </div>
         </div>
       </main>

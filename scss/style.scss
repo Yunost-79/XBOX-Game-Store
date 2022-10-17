@@ -5,6 +5,8 @@
 // consts
 $blue: #3b44f6;
 $bgcolor: #f5f4f9;
+$black: #181818;
+$links: #3b44f6;
 
 body {
   font-family: 'Lexend', sans-serif;
@@ -92,12 +94,15 @@ header {
     z-index: 4;
     right: 0;
     padding-right: 40px;
+    width: 40px;
+    height: 40px;
 
     .burger__item,
     .burger__item::after,
     .burger__item::before {
       position: absolute;
       content: '';
+      top: 20px;
       width: 40px;
       height: 4px;
       background-color: $blue;
@@ -219,21 +224,22 @@ header {
 
 .burger__backdrop {
   position: fixed;
-  top: -0;
+  display: none;
+  top: 0;
   left: 0;
   height: 100vh;
   width: 100vw;
-  z-index: -3;
-  background-color: rgba(0, 0, 0, 0);
+  z-index: 1;
+  background-color: $blue;
+  transition: 0.7s all;
   opacity: 0;
-  transition: .7s all;
+
+  &.shown {
+    display: flex;
+  }
 
   &.active {
-    display: flex;
-    z-index: 1;
-    top: 0;
-    opacity: 0.3;
-    background-color: $blue;
+    opacity: 0.5;
   }
 }
 
@@ -412,6 +418,7 @@ main {
     align-items: center;
     flex-direction: column;
     margin-top: 70px;
+    color: $black;
     .official__title {
       max-width: 500px;
       text-align: center;
@@ -451,8 +458,8 @@ main {
     padding: 0 25px;
 
     .official__block {
-      .official__title{
-        h2{
+      .official__title {
+        h2 {
           font-size: 28px;
         }
       }
@@ -460,6 +467,157 @@ main {
         margin-top: 30px;
         img {
           width: 25%;
+        }
+      }
+    }
+  }
+}
+
+.container {
+  .genres {
+    margin-top: 130px;
+
+    .genres__title {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      font-weight: 600;
+      line-height: 150%;
+      h1 {
+        font-size: 36px;
+        color: $black;
+      }
+      a {
+        font-size: 18px;
+        text-decoration: none;
+        color: $links;
+      }
+    }
+
+    .genres__image {
+      display: flex;
+      justify-content: space-between;
+      margin: 24px auto 0 auto;
+      width: 100%;
+      gap: 16px;
+
+      .image__item {
+        display: block;
+        position: relative;
+        z-index: 2;
+        text-decoration: none;
+        width: calc(100% / 6);
+        height: auto;
+        color: #fff;
+
+        img {
+          display: block;
+          width: 100%;
+          height: 100%;
+          border: 0;
+          border-radius: 8px;
+          object-fit: cover;
+        }
+        p {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: rgba(0, 0, 0, 0.6);
+          width: 100%;
+          height: 100%;
+          border-radius: 8px;
+          font-size: 20px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: 0.2s all;
+        }
+      }
+      .image__item:hover {
+        p {
+          background: rgba(0, 0, 0, 0.8);
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .container {
+    .genres {
+      .genres__image {
+        flex-wrap: wrap;
+        .image__item {
+          width: calc(100% / 3 - 15px);
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 25px;
+    .genres {
+      .genres__title {
+        h1 {
+          font-size: 28px;
+        }
+        a {
+          font-size: 16px;
+        }
+        .image__item {
+          p {
+            font-size: 30px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    .genres {
+      .genres__title {
+        h1 {
+          font-size: 22px;
+        }
+        a {
+          font-size: 14px;
+        }
+      }
+      .genres__image {
+        .image__item {
+          width: calc(100% / 2 - 10px);
+          p {
+            font-size: 22px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 360px) {
+  .container {
+    .genres {
+      .genres__title {
+        h1 {
+          font-size: 18px;
+        }
+        a {
+          font-size: 12px;
+        }
+      }
+      .genres__image {
+        .image__item {
+          width: 100%;
+          p {
+            font-size: 32px;
+          }
         }
       }
     }

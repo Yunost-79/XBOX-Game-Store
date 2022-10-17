@@ -2,23 +2,18 @@ const burgerBtn = document.querySelector('.burger__lines');
 const burgerMenu = document.querySelector('.burger__menu');
 const backDrop = document.querySelector('.burger__backdrop');
 
-burgerBtn.addEventListener('click', () => {
+function handleBurgerMenu() {
   burgerBtn.classList.toggle('active');
   burgerMenu.classList.toggle('active');
-  document.body.classList.toggle('lock');
-  backDrop.classList.toggle('active');
-});
-
-backDrop.addEventListener('click', () => {
-  burgerBtn.classList.remove('active');
-  burgerMenu.classList.remove('active');
-  backDrop.classList.remove('active');
-  document.body.classList.remove('lock');
-});
-
-document.addEventListener('backbutton', () => {
-  burgerBtn.classList.remove('active');
-  burgerMenu.classList.remove('active');
-  backDrop.classList.remove('active');
-  document.body.classList.remove('lock');
-});
+  if (burgerMenu.classList.contains('active')) {
+    backDrop.classList.add('shown');
+    setTimeout(() => {
+      backDrop.classList.add('active');
+    }, 500);
+  } else {
+    setTimeout(() => {
+      backDrop.classList.remove('shown');
+      backDrop.classList.remove('active');
+    });
+  }
+}
