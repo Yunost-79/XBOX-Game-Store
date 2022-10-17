@@ -178,13 +178,13 @@ header .burger__lines.active .burger__item::after {
   display: block;
   position: fixed;
   z-index: 3;
-  top: -1000%;
+  top: -500%;
   right: 0;
   flex-direction: column;
   width: 65%;
   height: 100vh;
   background-color: #3b44f6;
-  transition: 0.3s all;
+  transition: 0.6s all;
 }
 .burger__menu .burger__nav {
   display: flex;
@@ -202,7 +202,8 @@ header .burger__lines.active .burger__item::after {
 .burger__menu .burger__nav__item:first-of-type {
   margin-top: 0;
 }
-.burger__menu .burger__nav__item:hover, .burger__menu .burger__nav__item :active {
+.burger__menu .burger__nav__item:hover,
+.burger__menu .burger__nav__item :active {
   color: rgba(255, 255, 255, 0.7);
 }
 .burger__menu .burger__nav__regist {
@@ -221,7 +222,8 @@ header .burger__lines.active .burger__item::after {
   cursor: pointer;
   transition: 0.3s all;
 }
-.burger__menu .burger__nav__regist__btn:hover, .burger__menu .burger__nav__regist__btn :active {
+.burger__menu .burger__nav__regist__btn:hover,
+.burger__menu .burger__nav__regist__btn :active {
   background-color: rgba(0, 0, 0, 0);
   color: #fff;
 }
@@ -232,9 +234,8 @@ header .burger__lines.active .burger__item::after {
   }
 }
 .burger__backdrop {
-  display: none;
   position: fixed;
-  top: -1000%;
+  top: 0;
   left: 0;
   height: 100vh;
   width: 100vw;
@@ -248,7 +249,7 @@ header .burger__lines.active .burger__item::after {
   z-index: 1;
   top: 0;
   opacity: 0.3;
-  background-color: rgba(59, 68, 246, 0.4745098039);
+  background-color: #3b44f6;
 }
 
 .burger__menu.active {
@@ -328,4 +329,125 @@ main {
 .swiper-1 .swiper-button-next:active::before,
 .swiper-1 .swiper-button-prev:active::before {
   background-color: rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+  .swiper-button-next::after,
+.swiper-button-prev::after,
+.swiper-button-next::before,
+.swiper-button-prev::before {
+    display: none;
+  }
+}
+.swiper-1 .banner__content {
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  padding: 0 92px;
+}
+.swiper-1 .banner__content .banner__info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: #fff;
+  max-width: 500px;
+}
+.swiper-1 .banner__content .banner__info h1 {
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 148%;
+}
+.swiper-1 .banner__content .banner__info p {
+  margin-top: 17px;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 140%;
+}
+.swiper-1 .banner__content .banner__info .get__btn {
+  margin-top: 64px;
+  padding: 16px 32px;
+  width: auto;
+  background-color: rgba(255, 255, 255, 0);
+  color: #fff;
+  border-radius: 8px;
+  border: 1px solid #fff;
+  cursor: pointer;
+  transition: 0.3s all;
+}
+.swiper-1 .banner__content .banner__info .get__btn:first-of-type {
+  margin-left: 0;
+}
+.swiper-1 .banner__content .banner__info .get__btn:hover, .swiper-1 .banner__content .banner__info .get__btn:active {
+  background-color: #3b44f6;
+  border-color: #3b44f6;
+}
+
+@media (max-width: 500px) {
+  .swiper-1 .banner__content {
+    padding: 0 25px;
+  }
+  .swiper-1 .banner__content .banner__info h1 {
+    font-size: 36px;
+  }
+  .swiper-1 .banner__content .banner__info p {
+    font-size: 18px;
+  }
+}
+.container {
+  padding: 0 92px;
+  background-color: #f5f4f9;
+}
+.container .official__block {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 70px;
+}
+.container .official__block .official__title {
+  max-width: 500px;
+  text-align: center;
+}
+.container .official__block .official__title h2 {
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 140%;
+}
+.container .official__block .official__title p {
+  margin-top: 16px;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 150%;
+}
+.container .official__block .official__image {
+  margin-top: 60px;
+  width: 100%;
+  max-width: 920px;
+  display: flex;
+  justify-content: space-around;
+}
+.container .official__block p {
+  text-align: center;
+  max-width: 250px;
+  margin-top: 21px;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 130%;
+}
+
+@media (max-width: 500px) {
+  .container {
+    padding: 0 25px;
+  }
+  .container .official__block .official__title h2 {
+    font-size: 28px;
+  }
+  .container .official__block .official__image {
+    margin-top: 30px;
+  }
+  .container .official__block .official__image img {
+    width: 25%;
+  }
 }/*# sourceMappingURL=style.css.map */

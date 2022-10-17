@@ -12,6 +12,13 @@ burgerBtn.addEventListener('click', () => {
 backDrop.addEventListener('click', () => {
   burgerBtn.classList.remove('active');
   burgerMenu.classList.remove('active');
-  backDrop.classList.remove('active')
+  backDrop.classList.remove('active');
+  document.body.classList.remove('lock');
+});
+
+document.addEventListener('backbutton', () => {
+  burgerBtn.classList.remove('active');
+  burgerMenu.classList.remove('active');
+  backDrop.classList.remove('active');
   document.body.classList.remove('lock');
 });
