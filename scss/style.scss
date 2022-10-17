@@ -8,6 +8,24 @@
   color: $black;
 }
 
+@mixin blockTitle {
+  .content__title {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-weight: 600;
+    line-height: 150%;
+    h2 {
+      @include blockName();
+    }
+    a {
+      font-size: 18px;
+      text-decoration: none;
+      color: $links;
+    }
+  }
+}
+
 // consts
 $blue: #3b44f6;
 $bgcolor: #f5f4f9;
@@ -483,15 +501,13 @@ main {
 
 .container {
   .genres {
-    margin-top: 130px;
-
     .genres__title {
       display: flex;
       justify-content: space-between;
       width: 100%;
       font-weight: 600;
       line-height: 150%;
-      h1 {
+      h2 {
         @include blockName();
       }
       a {
@@ -500,6 +516,7 @@ main {
         color: $links;
       }
     }
+    margin-top: 130px;
 
     .genres__image {
       display: flex;
@@ -569,27 +586,20 @@ main {
     padding: 0 25px;
     .genres {
       .genres__title {
-        h1 {
+        h2 {
           font-size: 28px;
-        }
-        a {
-          font-size: 16px;
-        }
-        .image__item {
-          p {
-            font-size: 30px;
-          }
         }
       }
     }
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 500px) {
   .container {
     .genres {
+      margin-top: 50px;
       .genres__title {
-        h1 {
+        h2 {
           font-size: 22px;
         }
         a {
@@ -612,7 +622,7 @@ main {
   .container {
     .genres {
       .genres__title {
-        h1 {
+        h2 {
           font-size: 18px;
         }
         a {
@@ -621,7 +631,6 @@ main {
       }
       .genres__image {
         .image__item {
-       
           p {
             font-size: 12px;
           }
@@ -635,7 +644,6 @@ main {
 
 .best__seller {
   margin-top: 80px;
-  margin-bottom: 400px;
   h3 {
     @include blockName();
   }
@@ -793,11 +801,12 @@ main {
       }
     }
   }
+
   @media (max-width: 768px) {
     .container {
       .best__seller {
-        h3{
-          font-size: 22px;
+        h3 {
+          font-size: 26px;
         }
       }
     }
@@ -806,6 +815,7 @@ main {
   @media (max-width: 500px) {
     .container {
       .best__seller {
+        margin-top: 50px;
         .swiper-2 {
           .swiper-wrapper {
             .swiper-slide {
@@ -840,12 +850,212 @@ main {
     }
   }
 }
+
 @media (max-width: 360px) {
   .container {
     .best__seller {
-      h3{
+      h3 {
         font-size: 18px;
       }
     }
   }
 }
+
+//Popular Games
+
+.container {
+  .popular {
+    margin-top: 84px;
+    .block__title {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      font-weight: 600;
+      line-height: 150%;
+      h2 {
+        @include blockName();
+      }
+      a {
+        font-size: 18px;
+        text-decoration: none;
+        color: $links;
+      }
+    }
+
+    .offers__content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-top: 30px;
+      width: 100%;
+      gap: 16px;
+
+      .offers-block {
+        display: flex;
+        flex-direction: column;
+        padding: 16px 16px 0 16px;
+        border-radius: 8px;
+        background-color: #fff;
+        width: calc(100% / 4 - 16px);
+
+        img {
+          width: 100%;
+          height: auto;
+          object-fit: cover;
+        }
+        .offers-title {
+          margin: 15px 0 24px 0;
+
+          .offers-name {
+            text-decoration: none;
+            font-size: 22px;
+            font-weight: 500;
+            line-height: 130%;
+            color: $black;
+            transition: 0.3s all;
+          }
+
+          .offers-name:hover,
+          .offers-name:active {
+            color: $blue;
+          }
+
+          .price-block {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 17px;
+
+            .free__download {
+              padding: 4px 10px;
+              font-size: 18px;
+              background-color: rgba(59, 68, 246, 0.3);
+              color: $blue;
+              border-radius: 4px;
+              text-align: center;
+            }
+
+            .priсe {
+              font-size: 18px;
+              font-weight: 500;
+              line-height: 140%;
+              color: $blue;
+            }
+
+            .sale__priсe {
+              .percent__priсe {
+                font-size: 12px;
+                background-color: rgba(252, 50, 111, 0.2);
+                color: #fc326f;
+                padding: 3px;
+                border-radius: 4px;
+              }
+              .prev__priсe {
+                font-size: 12px;
+                padding: 3px;
+                background-color: #f5f4f9;
+                color: #7d7d7d;
+                border-radius: 4px;
+                text-decoration: line-through;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .container {
+    .popular {
+      .offers__content {
+        justify-content: flex-start;
+
+        .offers-block {
+          width: calc(100% / 3 - 16px);
+        }
+      }
+    }
+  }
+}
+@media (max-width: 950px) {
+  .container {
+    .popular {
+      .offers__content {
+        .offers-block {
+          width: calc(100% / 2 - 16px);
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    .popular {
+      .block__title {
+        h2 {
+          font-size: 26px;
+        }
+      }
+      .offers__content {
+        .offers-block {
+          .offers-title {
+            .offers-name {
+              font-size: 15px;
+            }
+            .price-block {
+              flex-wrap: wrap;
+              .free__download {
+                font-size: 14px;
+              }
+              .priсe {
+                font-size: 14px;
+              }
+              .sale__priсe {
+                .percent__priсe {
+                  font-size: 8px;
+                }
+                .prev__priсe {
+                  font-size: 8px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .container {
+    .popular {
+      margin-top: 50px;
+      .block__title {
+        h2 {
+          font-size: 22px;
+        }
+        a {
+          font-size: 15px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 360px) {
+  .container {
+    .popular {
+      .block__title {
+        h2 {
+          font-size: 18px;
+        }
+        a {
+          font-size: 12px;
+        }
+      }
+
+            }
+          }
+        }
