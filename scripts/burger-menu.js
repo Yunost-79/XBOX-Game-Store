@@ -5,6 +5,7 @@ const backDrop = document.querySelector('.burger__backdrop');
 function handleBurgerMenu() {
   burgerBtn.classList.toggle('active');
   burgerMenu.classList.toggle('active');
+  document.body.classList.toggle('lock')
   if (burgerMenu.classList.contains('active')) {
     backDrop.classList.add('shown');
     setTimeout(() => {

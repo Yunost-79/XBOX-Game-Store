@@ -84,8 +84,8 @@ body {
 }
 
 header {
-  position: absolute;
-  z-index: 2;
+  position: fixed;
+  z-index: 5;
   top: 0;
   width: 100%;
   max-width: 1920px;
@@ -94,6 +94,7 @@ header {
   align-items: center;
   padding: 20px 92px;
   font-size: 18px;
+  background-color: #181c5e;
 }
 header .nav .nav__item {
   margin-left: 40px;
@@ -128,7 +129,8 @@ header .nav__regist .regist__btn:hover, header .nav__regist .regist__btn:active 
 header .burger__lines {
   position: relative;
   z-index: 4;
-  right: 0;
+  top: 10px;
+  right: -10px;
   padding-right: 40px;
   width: 60px;
   height: 60px;
@@ -269,6 +271,192 @@ header .burger__lines.active .burger__item::after {
 main {
   width: 100%;
   max-width: 1920px;
+}
+
+.modal {
+  display: block;
+  position: absolute;
+  top: -100%;
+  width: 100%;
+  z-index: 2;
+  height: 100vh;
+  transition: 0.7s all;
+  opacity: 0;
+}
+.modal.active {
+  top: 0;
+  opacity: 1;
+}
+.modal .modal__conteiner {
+  transition: 1s all;
+  position: relative;
+}
+.modal .modal__backdrop {
+  display: none;
+  position: absolute;
+  z-index: 3;
+  width: 100%;
+  height: 100vh;
+  cursor: pointer;
+  background-color: rgba(59, 68, 246, 0.3);
+  opacity: 0;
+}
+.modal .modal__backdrop.shown {
+  display: block;
+  transition: 0.5s all;
+}
+.modal .modal__backdrop.active {
+  opacity: 1;
+}
+.modal .modal__content {
+  position: absolute;
+  z-index: 4;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 4px;
+  width: 50%;
+  background-color: #181818;
+}
+.modal .modal__content .modal__body {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 20px 40px 20px;
+}
+.modal .modal__content .modal__body .modal__close {
+  position: absolute;
+  right: 20px;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+}
+.modal .modal__content .modal__body .modal__close:hover .close__line::after {
+  transform: rotate(-135deg);
+  background: #3b44f6;
+}
+.modal .modal__content .modal__body .modal__close:hover .close__line::before {
+  transform: rotate(-225deg);
+  background: #3b44f6;
+}
+.modal .modal__content .modal__body .modal__close .close__line {
+  position: absolute;
+  top: 50%;
+  transform: translate(50%);
+}
+.modal .modal__content .modal__body .modal__close .close__line::after, .modal .modal__content .modal__body .modal__close .close__line::before {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 4px;
+  background: #fff;
+  transition: 0.5s all;
+}
+.modal .modal__content .modal__body .modal__close .close__line::after {
+  transform: rotate(45deg);
+}
+.modal .modal__content .modal__body .modal__close .close__line::before {
+  transform: rotate(-45deg);
+}
+.modal .modal__content .modal__block {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 40px;
+}
+.modal .modal__content .modal__block .modal__title {
+  text-align: center;
+  font-size: 24px;
+  color: #fff;
+}
+.modal .modal__content .modal__block .form__block {
+  margin-top: 15px;
+  width: 100%;
+}
+.modal .modal__content .modal__block .form__block .input__item {
+  position: relative;
+  margin-top: 10px;
+}
+.modal .modal__content .modal__block .form__block .input__item::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 50%;
+  transform: translate(-50%);
+  width: 0;
+  height: 3px;
+  background-color: #3b44f6;
+  transition: 0.5s all;
+}
+.modal .modal__content .modal__block .form__block .input__item:hover::after {
+  width: 100%;
+}
+.modal .modal__content .modal__block .form__block .input__item:focus-within::after {
+  width: 100%;
+}
+.modal .modal__content .modal__block .form__block .input__item .input {
+  width: 100%;
+  padding: 5px 10px;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  transition: 0.3s all;
+}
+.modal .modal__content .modal__block .form__block .input__item .input::placeholder {
+  transition: 0.3s all;
+  font-size: 16px;
+}
+.modal .modal__content .modal__block .form__block .input__item .input:focus .input__item::after {
+  width: 100%;
+}
+.modal .modal__content .modal__block .form__block .input__item .input:focus::placeholder {
+  color: #3b44f6;
+}
+.modal .modal__content .modal__block .modal__enter {
+  display: flex;
+  justify-content: center;
+  margin-top: 35px;
+}
+.modal .modal__content .modal__block .modal__enter .modal__button {
+  background-color: rgba(59, 68, 246, 0);
+  border: 2px solid #fff;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 16px;
+  padding: 8px 32px;
+  cursor: pointer;
+  transition: 0.3s all;
+}
+.modal .modal__content .modal__block .modal__enter .modal__button:hover, .modal .modal__content .modal__block .modal__enter .modal__button:active {
+  background-color: rgb(59, 68, 246);
+  border: 2px solid #3b44f6;
+}
+.modal .modal__content .modal__block .sign__link {
+  position: relative;
+  margin-top: 35px;
+  text-align: center;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s all;
+}
+.modal .modal__content .modal__block .sign__link::after {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 2px;
+  bottom: -5px;
+  left: 50%;
+  transform: translate(-50%);
+  background-color: #fff;
+  transition: 0.3s all;
+}
+.modal .modal__content .modal__block .sign__link:hover {
+  color: #3b44f6;
+}
+.modal .modal__content .modal__block .sign__link:hover::after {
+  width: 50%;
+  background-color: #3b44f6;
 }
 
 .swiper-1 {
@@ -686,6 +874,9 @@ main {
   border: 1px solid #3b44f6;
   border-radius: 50%;
 }
+.best__seller .swiper-2 .swiper-pagination {
+  display: none;
+}
 
 @media (max-width: 1400px) {
   .container .best__seller .swiper-2 .swiper-wrapper .swiper-slide .slide-block .slide-title .slide-name {
@@ -713,6 +904,9 @@ main {
   .container .best__seller {
     margin-top: 50px;
   }
+  .container .best__seller .swiper-2 .swiper-wrapper {
+    margin-bottom: 25px;
+  }
   .container .best__seller .swiper-2 .swiper-wrapper .swiper-slide .slide-block {
     width: 100%;
   }
@@ -730,6 +924,14 @@ main {
   }
   .container .best__seller .swiper-2 .swiper-wrapper .swiper-slide .slide-block .slide-title .price-block .sale__priсe .prev__priсe {
     font-size: 12px;
+  }
+  .container .best__seller .swiper-2 .swiper-button-next,
+.container .best__seller .swiper-2 .swiper-button-prev {
+    display: none;
+  }
+  .container .best__seller .swiper-2 .swiper-pagination {
+    display: block;
+    bottom: 0px;
   }
 }
 @media (max-width: 360px) {
@@ -771,12 +973,21 @@ main {
   padding: 16px 16px 0 16px;
   border-radius: 8px;
   background-color: #fff;
+  border: 2px solid #fff;
   width: calc(25% - 16px);
+  transition: 0.3s all;
+}
+.container .popular .offers__content .offers-block:hover {
+  border: 2px solid rgba(0, 0, 0, 0.3);
 }
 .container .popular .offers__content .offers-block img {
   width: 100%;
   height: auto;
   object-fit: cover;
+  transition: 0.3s all;
+}
+.container .popular .offers__content .offers-block img:hover {
+  opacity: 0.7;
 }
 .container .popular .offers__content .offers-block .offers-title {
   margin: 15px 0 24px 0;
@@ -1067,10 +1278,10 @@ main {
 }
 @media (max-width: 500px) {
   .coming__soon .soon .soon__content .content__left .left__item .inner__title h3 {
-    font-size: 14px;
+    font-size: 12px;
   }
   .coming__soon .soon .soon__content .content__right .right__item .inner__title h3 {
-    font-size: 10px;
+    font-size: 8px;
   }
 }
 .container .satisfied {
@@ -1329,4 +1540,53 @@ footer .footer__copy p {
   font-size: 15px;
   line-height: 144%;
   color: #a0a0a0;
+}
+
+@media (max-width: 768px) {
+  footer {
+    padding: 0 25px;
+  }
+  footer .footer__content {
+    flex-wrap: wrap;
+  }
+  footer .footer__content .block__item {
+    text-align: center;
+  }
+  footer .footer__content .block__logo {
+    display: none;
+  }
+  footer .footer__content .block__menu {
+    flex: 1 1 50%;
+  }
+  footer .footer__content .block__resources {
+    flex: 1 1 50%;
+  }
+  footer .footer__content .block__follow {
+    flex: 1 1 100%;
+    margin-top: 25px;
+  }
+  footer .footer__content .block__follow .img__link .footer__image {
+    width: 35px;
+    height: 35px;
+    margin-left: 25px;
+  }
+  footer .footer__content .block__follow .img__link .footer__image:first-of-type {
+    margin-left: 0px;
+  }
+  footer .footer__copy {
+    margin-top: 25px;
+  }
+}
+@media (max-width: 300px) {
+  footer .footer__content .block__item h4 {
+    font-size: 14px !important;
+  }
+  footer .footer__content .block__item a {
+    font-size: 12px !important;
+  }
+  footer .footer__content .block__follow .img__link .footer__image {
+    width: 25px;
+    height: 25px;
+    margin-left: 15px;
+  }
 }/*# sourceMappingURL=style.css.map */

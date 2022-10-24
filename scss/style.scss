@@ -60,8 +60,8 @@ body {
 }
 
 header {
-  position: absolute;
-  z-index: 2;
+  position: fixed;
+  z-index: 5;
   top: 0;
   width: 100%;
   max-width: 1920px;
@@ -70,6 +70,7 @@ header {
   align-items: center;
   padding: 20px 92px;
   font-size: 18px;
+  background-color: #181c5e;
   //Navigation
 
   & .nav {
@@ -116,7 +117,8 @@ header {
   .burger__lines {
     position: relative;
     z-index: 4;
-    right: 0;
+    top: 10px;
+    right: -10px;
     padding-right: 40px;
     width: 60px;
     height: 60px;
@@ -281,6 +283,264 @@ header {
 main {
   width: 100%;
   max-width: 1920px;
+}
+
+//Modal Form
+
+// .modal {
+//   display: none;
+//   opacity: 0;
+//   &.shown {
+//     display: flex;
+//   }
+  
+//   &.active {
+//     opacity: 0.5;
+//   }
+// }
+
+
+.modal {
+  display: block;
+  position: absolute;
+  top: -100%;
+  width: 100%;
+  z-index: 2;
+  height: 100vh;
+  transition: 0.7s all;
+  opacity: 0;
+  
+
+
+
+  &.active{
+    top: 0;
+    opacity: 1;
+
+  }
+
+  .modal__conteiner {
+    transition: 1s all;
+
+    position: relative;
+    
+  }
+
+  .modal__backdrop{
+    display: none;
+    position: absolute;
+    z-index: 3;
+    width: 100%;
+    height: 100vh;
+    cursor: pointer;
+    background-color: rgba(59, 68, 246, 0.3);
+    opacity: 0;
+    
+    &.shown{
+      display: block;
+      transition: 0.5s all;
+    }
+    
+      &.active{
+        opacity: 1;
+      }
+  }
+
+
+  .modal__content {
+    position: absolute;
+    z-index: 4;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 4px;
+    width: 50%;
+    background-color: $black;
+
+    .modal__body {
+      position: relative;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      padding: 20px 20px 40px 20px;
+
+      .modal__close {
+        position: absolute;
+        right: 20px;
+        width: 35px;
+        height: 35px;
+        cursor: pointer;
+
+        &:hover {
+          .close__line {
+            &::after {
+              transform: rotate(-135deg);
+              background: $blue;
+            }
+
+            &::before {
+              transform: rotate(-225deg);
+              background: $blue;
+            }
+          }
+        }
+
+        .close__line {
+          position: absolute;
+          top: 50%;
+          transform: translate(50%);
+
+          &::after,
+          &::before {
+            content: '';
+            position: absolute;
+            width: 30px;
+            height: 4px;
+            background: #fff;
+            transition: 0.5s all;
+          }
+
+          &::after {
+            transform: rotate(45deg);
+          }
+
+          &::before {
+            transform: rotate(-45deg);
+          }
+        }
+      }
+      // background-color: rgba(255, 255, 255, 0.7);
+    }
+    .modal__block {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      margin-top: 40px;
+
+      .modal__title {
+        text-align: center;
+        font-size: 24px;
+        color: #fff;
+      }
+
+      .form__block {
+        margin-top: 15px;
+        width: 100%;
+
+        .input__item {
+          position: relative;
+          margin-top: 10px;
+
+          // &:hover{
+          //   &::after {
+          //     width: 100%;
+          //   }
+          // }
+          &::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 50%;
+            transform: translate(-50%);
+            width: 0;
+            height: 3px;
+            background-color: #3b44f6;
+            transition: 0.5s all;
+          }
+
+          &:hover {
+            &::after {
+              width: 100%;
+            }
+          }
+
+          &:focus-within {
+            &::after {
+              width: 100%;
+            }
+          }
+
+          .input {
+            width: 100%;
+            padding: 5px 10px;
+            font-size: 16px;
+            border: none;
+            outline: none;
+            transition: 0.3s all;
+
+            &::placeholder {
+              transition: 0.3s all;
+              font-size: 16px;
+            }
+
+            &:focus {
+              .input__item {
+                &::after {
+                  width: 100%;
+                }
+              }
+
+              &::placeholder {
+                color: #3b44f6;
+              }
+            }
+          }
+        }
+      }
+
+      .modal__enter {
+        display: flex;
+        justify-content: center;
+        margin-top: 35px;
+
+        .modal__button {
+          background-color: rgba(59, 68, 246, 0);
+          border: 2px solid #fff;
+          border-radius: 8px;
+          color: #fff;
+          font-size: 16px;
+          padding: 8px 32px;
+          cursor: pointer;
+          transition: 0.3s all;
+
+          &:hover,
+          &:active {
+            background-color: rgba(59, 68, 246, 1);
+            border: 2px solid #3b44f6;
+          }
+        }
+      }
+
+      .sign__link {
+        position: relative;
+        margin-top: 35px;
+        text-align: center;
+        color: #fff;
+        cursor: pointer;
+        transition: 0.3s all;
+
+        &::after {
+          position: absolute;
+          content: '';
+          width: 0;
+          height: 2px;
+          bottom: -5px;
+          left: 50%;
+          transform: translate(-50%);
+          background-color: #fff;
+          transition: 0.3s all;
+        }
+
+        &:hover {
+          color: $links;
+          &::after {
+            width: 50%;
+            background-color: $links;
+          }
+        }
+      }
+    }
+  }
 }
 
 //Slider Banner
@@ -782,6 +1042,10 @@ main {
       border: 1px solid $blue;
       border-radius: 50%;
     }
+
+    .swiper-pagination {
+      display: none;
+    }
   }
 }
 
@@ -836,6 +1100,8 @@ main {
         margin-top: 50px;
         .swiper-2 {
           .swiper-wrapper {
+            margin-bottom: 25px;
+
             .swiper-slide {
               .slide-block {
                 width: 100%;
@@ -862,6 +1128,16 @@ main {
                 }
               }
             }
+          }
+
+          .swiper-button-next,
+          .swiper-button-prev {
+            display: none;
+          }
+
+          .swiper-pagination {
+            display: block;
+            bottom: 0px;
           }
         }
       }
@@ -914,12 +1190,23 @@ main {
         padding: 16px 16px 0 16px;
         border-radius: 8px;
         background-color: #fff;
+        border: 2px solid #fff;
         width: calc(100% / 4 - 16px);
+        transition: 0.3s all;
+
+        &:hover {
+          border: 2px solid rgba(0, 0, 0, 0.3);
+        }
 
         img {
           width: 100%;
           height: auto;
           object-fit: cover;
+          transition: 0.3s all;
+
+          &:hover {
+            opacity: 0.7;
+          }
         }
         .offers-title {
           margin: 15px 0 24px 0;
@@ -1340,7 +1627,7 @@ main {
           .left__item {
             .inner__title {
               h3 {
-                font-size: 14px;
+                font-size: 12px;
               }
             }
           }
@@ -1350,7 +1637,7 @@ main {
           .right__item {
             .inner__title {
               h3 {
-                font-size: 10px;
+                font-size: 8px;
               }
             }
           }
@@ -1666,7 +1953,6 @@ footer {
           cursor: pointer;
           opacity: 0.7;
 
-
           &:first-of-type {
             margin-left: 0;
           }
@@ -1701,6 +1987,79 @@ footer {
       font-size: 15px;
       line-height: 144%;
       color: #a0a0a0;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  footer {
+    padding: 0 25px;
+
+    .footer__content {
+      flex-wrap: wrap;
+
+      .block__item {
+        text-align: center;
+      }
+
+      .block__logo {
+        display: none;
+      }
+
+      .block__menu {
+        flex: 1 1 50%;
+      }
+
+      .block__resources {
+        flex: 1 1 50%;
+      }
+
+      .block__follow {
+        flex: 1 1 100%;
+        margin-top: 25px;
+
+        .img__link {
+          .footer__image {
+            width: 35px;
+            height: 35px;
+            margin-left: 25px;
+
+            &:first-of-type {
+              margin-left: 0px;
+            }
+          }
+        }
+      }
+    }
+
+    .footer__copy {
+      margin-top: 25px;
+    }
+  }
+}
+
+@media (max-width: 300px) {
+  footer {
+    .footer__content {
+      .block__item {
+        h4 {
+          font-size: 14px !important;
+        }
+
+        a {
+          font-size: 12px !important;
+        }
+      }
+
+      .block__follow {
+        .img__link {
+          .footer__image {
+            width: 25px;
+            height: 25px;
+            margin-left: 15px;
+          }
+        }
+      }
     }
   }
 }
