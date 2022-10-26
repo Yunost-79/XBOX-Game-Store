@@ -10,7 +10,7 @@ window.addEventListener('scroll', () => {
   if (defaultOffset <= scrollPosition()) {
     header.classList.add('active');
 
-    if (scrollPosition() > lastScroll && !containsHide) {
+    if (scrollPosition() >= lastScroll && !containsHide) {
       header.classList.remove('hide');
     } else {
       header.classList.add('hide');

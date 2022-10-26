@@ -38,7 +38,6 @@ function renderModalForm() {
     // Recursion
 
     if (elem.children?.length) {
-      console.log(elem.children);
       elem.children.forEach((it) => {
         const childElem = handleRenderMenu(it);
         element.append(childElem);
