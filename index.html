@@ -11,13 +11,11 @@
     <title>XBOX Game Store</title>
   </head>
   <body>
-
     <div class="modal" id="modal-sign-up"></div>
-
-
+    <div class="modal" id="modal-login"></div>
 
     <div class="body__wrapper">
-      <header>
+      <header class="header">
         <div class="header__logo">
           <a href="">
             <img src="./image/Logo.png" alt="" />
@@ -29,8 +27,8 @@
           <a href="#" class="nav__item">Store</a>
         </div>
         <div class="nav__regist">
-          <button class="regist__btn" onclick="handleModalWindow()">Sing up</button>
-          <button class="regist__btn">Login</button>
+          <button class="regist__btn" onclick="handleOpenModalWindow()">Sing up</button>
+          <button class="regist__btn" onclick="handleOpenModalWindow()">Login</button>
         </div>
 
         <div class="burger__lines" onclick="handleBurgerMenu()">
@@ -43,8 +41,8 @@
             <a href="#" class="burger__nav__item">Store</a>
           </div>
           <div class="burger__nav__regist">
-            <button class="burger__nav__regist__btn">Sing up</button>
-            <button class="burger__nav__regist__btn">Login</button>
+            <button class="burger__nav__regist__btn" onclick="handleOpenModalWindow()">Sing up</button>
+            <button class="burger__nav__regist__btn" onclick="handleOpenModalWindow()">Login</button>
           </div>
         </div>
         <div class="burger__backdrop" onclick="handleBurgerMenu()"></div>
@@ -266,7 +264,6 @@
               <div class="swiper-button-next"></div>
               <div class="swiper-button-prev"></div>
               <div class="swiper-pagination"></div>
-
             </div>
           </div>
 
@@ -533,7 +530,6 @@
           <div class="block__follow block__item">
             <h4 class="item__title">Follow us on:</h4>
             <div class="img__link">
-
               <img class="footer__image" src="./image/instargam.svg" alt="" />
               <img class="footer__image" src="./image/youtube.svg" alt="" />
               <img class="footer__image" src="./image/twitch.svg" alt="" />

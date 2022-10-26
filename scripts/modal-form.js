@@ -1,5 +1,6 @@
 function renderModalForm() {
   const modalBlockSignUp = document.getElementById('modal-sign-up');
+  const modalBlockLogin = document.getElementById('modal-login')
 
   const handleRenderMenu = (elem) => {
     const element = document.createElement(elem.element);
@@ -48,6 +49,9 @@ function renderModalForm() {
 
   const modalContentSignUp = handleRenderMenu(MODAL_STRUCTURE_SIGN_UP);
   modalBlockSignUp.append(modalContentSignUp);
+
+  const modalContentLogin = handleRenderMenu(MODAL_STRUCTURE_LOGIN);
+  modalBlockLogin.append(modalContentLogin);
 }
 
 renderModalForm();
@@ -58,8 +62,9 @@ const modalWindow = document.querySelector('.modal');
 const modalBackDrop = document.querySelector('.modal__backdrop');
 const modalClose = document.querySelector('.modal__close');
 
-function handleModalWindow() {
+function handleOpenModalWindow() {
   modalWindow.classList.add('active');
+
   document.body.classList.add('lock');
 
   if (modalWindow.classList.contains('active')) {
